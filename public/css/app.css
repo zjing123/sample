@@ -8415,10 +8415,12 @@ p {
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
+  cursor: default;
 }
 
 #logo:hover {
   color: #FFFFFF;
+  background-color: transparent;
 }
 
 /* footer */
