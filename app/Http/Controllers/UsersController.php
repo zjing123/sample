@@ -33,7 +33,10 @@ class UsersController extends Controller
 
     public function show(User $user)
     {
-        return view('users.show', compact('user'));
+        $statuses = $user->statuses()
+                         ->orderBy('created_at', 'desc')
+                         ->paginate(30);
+        return view('users.show', compact('user', 'statuses'));
     }
 
     public function store(Request $request)
@@ -71,7 +74,7 @@ class UsersController extends Controller
 
     public function edit(User $user)
     {
-        //$this->authorize('update', $user);
+        $this->authorize('update', $user);
         return view('users.edit', compact('user'));
     }
 
